@@ -168,6 +168,7 @@ app.get("/api/safetynet/check", async (req, res) => {
 
 export default {
   async fetch(request, env, ctx) {
+    globalThis.env = env; 
     return handleRequest(request);
   }
 };
