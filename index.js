@@ -164,3 +164,10 @@ app.get("/api/safetynet/check", async (req, res) => {
     res.status(200).send(decryptedToken);
   }
 });
+
+
+export default {
+  async fetch(request, env, ctx) {
+    return handleRequest(request);
+  }
+};
