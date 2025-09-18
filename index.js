@@ -40,7 +40,12 @@ function dieConf(variable) {
 }
 
 // import config variables
-import config from "./config.json" assert { type: "json" };
+import fs from "fs";
+
+const config = JSON.parse(
+  fs.readFileSync(new URL("./config.json", import.meta.url), "utf-8")
+);
+
 var certificates = config.validCertificateSha256Digest;
 if (!certificates) {
   console.log("Configuration variable not set: validCertificateSha256Digest");
